@@ -197,6 +197,7 @@ export default {
     }
   },
   created () {
+    console.log("Test Log")
     this.$formulate.register(this)
     this.applyInitialValues()
     this.$emit('created', this)
