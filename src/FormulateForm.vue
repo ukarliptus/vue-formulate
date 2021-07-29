@@ -201,6 +201,7 @@ export default {
     this.$formulate.register(this)
     this.applyInitialValues()
     this.$emit('created', this)
+    this.$emit('test', "Test Emit")
   },
   destroyed () {
     this.$formulate.deregister(this)
