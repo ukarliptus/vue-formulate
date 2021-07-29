@@ -54,6 +54,7 @@ export function leaf (item, index = 0, rootListeners = {}) {
  * @param {Array|string} schema
  */
 function tree (h, schema, rootListeners) {
+  console.log("test log tree function")
   if (Array.isArray(schema)) {
     return schema.map((el, index) => {
       const item = leaf(el, index, rootListeners)
