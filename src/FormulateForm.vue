@@ -4,6 +4,7 @@
     v-bind="attributes"
     @submit.prevent="formSubmitted"
     @input="onInput($event.target)"
+    @change="onChange($event.target)"
   >
     <FormulateSchema
       v-if="schema"
@@ -275,6 +276,9 @@ export default {
     },
     onInput (event) {
       this.$emit('inputfield', { name: event.name, value: event.value })
+    },
+    onChange (event) {
+      this.$emit('fieldchange', { name: event.name, value: event.value })
     }
   }
 }
