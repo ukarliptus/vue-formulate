@@ -206,9 +206,6 @@ export default {
     this.$formulate.deregister(this)
   },
   methods: {
-    onInput (event) {
-      this.$emit('inputField', { name: event.name, value: event.value })
-    },
     ...useRegistryMethods(),
     applyErrors ({ formErrors, inputErrors }) {
       // given an object of errors, apply them to this form
@@ -275,6 +272,9 @@ export default {
       this.hasFailedSubmit = true
       this.$emit('failed-validation', { ...this.failingFields })
       return this.$formulate.failedValidation(this)
+    },
+    onInput (event) {
+      this.$emit('inputfield', { name: event.name, value: event.value })
     }
   }
 }
