@@ -3,6 +3,7 @@
     :class="classes.form"
     v-bind="attributes"
     @submit.prevent="formSubmitted"
+    @input="onInput($event.target)"
   >
     <FormulateSchema
       v-if="schema"
@@ -197,16 +198,17 @@ export default {
     }
   },
   created () {
-    console.log("Test Log")
     this.$formulate.register(this)
     this.applyInitialValues()
     this.$emit('created', this)
-    this.$emit('test', "Test Emit")
   },
   destroyed () {
     this.$formulate.deregister(this)
   },
   methods: {
+    onInput (event) {
+      this.$emit('inputField', { name: event.name, value: event.value })
+    },
     ...useRegistryMethods(),
     applyErrors ({ formErrors, inputErrors }) {
       // given an object of errors, apply them to this form
