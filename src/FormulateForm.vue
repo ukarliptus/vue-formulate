@@ -4,7 +4,7 @@
     v-bind="attributes"
     @submit.prevent="formSubmitted"
     @input="onInput($event)"
-    @change="onChange($event)"
+    @change="onChange($event.target)"
   >
     <FormulateSchema
       v-if="schema"
