@@ -3,7 +3,7 @@
     :class="classes.form"
     v-bind="attributes"
     @submit.prevent="formSubmitted"
-    @input="onInput($event)"
+    @input="onInput($event.target)"
     @change="onChange($event.target)"
   >
     <FormulateSchema
@@ -276,8 +276,9 @@ export default {
       return this.$formulate.failedValidation(this)
     },
     onInput (event) {
-      this.changed[event.target.name] = event.target.value
-      this.$emit('inputfield', event)
+      this.changed[event.name] = event.value
+      this.$emit('inputfield', { name: event.name, value: event.value })
+      this.$emit('formchanged', this.changed)
     },
     onChange (event) {
       this.$emit('fieldchange', { name: event.name, value: event.value })

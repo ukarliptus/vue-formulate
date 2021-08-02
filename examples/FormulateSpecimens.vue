@@ -29,6 +29,7 @@
     id="app"
     class="specimen-list"
   >
+    <FormulateForm v-model="formData" :schema="schema" @formchanged="formChange"  />
     <SpecimenButton />
     <SpecimenBox />
     <SpecimenFile />
@@ -68,7 +69,37 @@ export default {
     return {
       testKey: false,
       provingGroundValue: null,
-      provingGroundSubmissionResolver: () => {}
+      provingGroundSubmissionResolver: () => {},
+      formData: {
+        group: {
+          field1: 'a',
+          field2: 'b'
+        }
+      },
+      schema: [
+        {
+          component: 'div',
+          class: 'columns',
+          children: [
+            {
+              component: 'div',
+              class: 'column',
+              children: [
+                {
+                  type: 'text',
+                  name: 'group.field1',
+                  label: 'Field 1'
+                },
+                {
+                  type: 'text',
+                  name: 'group.field2',
+                  label: 'Field 2'
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   mounted () {
@@ -79,6 +110,15 @@ export default {
     window.getVueInstance = () => this
   },
   methods: {
+    formChange (data) {
+      console.log(data)
+    },
+    onInput (data) {
+      console.log(data)
+    },
+    blur (data) {
+      console.log(data)
+    },
     showTest (data) {
       if (data.component) {
         this.testKey = nanoid(5)
