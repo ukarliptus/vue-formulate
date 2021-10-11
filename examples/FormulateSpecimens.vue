@@ -29,7 +29,7 @@
     id="app"
     class="specimen-list"
   >
-    <FormulateForm v-model="formData" :schema="schema" @formchanged="formChange"  />
+    <FormulateForm v-model="formData" :schema="schema" @inputfield="onInput"  />
     <SpecimenButton />
     <SpecimenBox />
     <SpecimenFile />

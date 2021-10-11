@@ -551,6 +551,7 @@ function modelGetter () {
  **/
 function modelSetter (value) {
   let didUpdate = false
+  console.log({ 'value': value, 'proxy': this.proxy, 'type': this.type, 'name': this.context.name })
   if (!equals(value, this.proxy, this.type === 'group')) {
     this.proxy = value
     didUpdate = true
