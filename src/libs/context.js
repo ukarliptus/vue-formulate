@@ -551,7 +551,7 @@ function modelGetter () {
  **/
 function modelSetter (value) {
   let didUpdate = false
-  console.log({ 'value': value, 'proxy': this.proxy, 'type': this.type, 'name': this.context.name })
+  // console.log({ 'value': value, 'proxy': this.proxy, 'type': this.type, 'name': this.context.name })
   if (!equals(value, this.proxy, this.type === 'group')) {
     this.proxy = value
     didUpdate = true
@@ -560,6 +560,7 @@ function modelSetter (value) {
     this.formulateSetter(this.context.name, value)
   }
   if (didUpdate) {
-    this.$emit('input', value)
+    // this.$emit('testinput', { 'value': value, 'name': this.context.name })
+    this.$emit('input', { 'value': value, 'name': this.context.name })
   }
 }
