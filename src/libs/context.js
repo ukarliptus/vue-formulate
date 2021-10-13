@@ -560,7 +560,6 @@ function modelSetter (value) {
     this.formulateSetter(this.context.name, value)
   }
   if (didUpdate) {
-    // this.$emit('testinput', { 'value': value, 'name': this.context.name })
-    this.$emit('input', { 'value': value, 'name': this.context.name })
+    this.$emit('input', value)
   }
 }

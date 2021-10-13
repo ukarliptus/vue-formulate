@@ -3,8 +3,8 @@
     :class="classes.form"
     v-bind="attributes"
     @submit.prevent="formSubmitted"
-    @input="onInput($event.target)"
     @change="onChange($event.target)"
+    @input="onInput($event.target)"
   >
     <FormulateSchema
       v-if="schema"

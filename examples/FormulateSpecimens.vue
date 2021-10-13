@@ -29,7 +29,10 @@
     id="app"
     class="specimen-list"
   >
-    <FormulateForm v-model="formData" :schema="schema"  />
+    <FormulateForm
+      v-model="formData"
+      :schema="schema"
+    />
     <SpecimenButton />
     <SpecimenBox />
     <SpecimenFile />
@@ -71,10 +74,8 @@ export default {
       provingGroundValue: null,
       provingGroundSubmissionResolver: () => {},
       formData: {
-        group: {
-          field1: 'a',
-          field2: 'b'
-        }
+        field1: 'a',
+        field2: 'b'
       },
       schema: [
         {
@@ -87,12 +88,12 @@ export default {
               children: [
                 {
                   type: 'text',
-                  name: 'group.field1',
+                  name: 'field1',
                   label: 'Field 1'
                 },
                 {
                   type: 'text',
-                  name: 'group.field2',
+                  name: 'field2',
                   label: 'Field 2'
                 }
               ]
@@ -110,12 +111,6 @@ export default {
     window.getVueInstance = () => this
   },
   methods: {
-    formChange (data) {
-      console.log(data)
-    },
-    onInput (data) {
-      console.log(data)
-    },
     blur (data) {
       console.log(data)
     },
